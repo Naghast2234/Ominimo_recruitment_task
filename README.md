@@ -1,6 +1,6 @@
 Requirements:
 
-- PHP (8.*)
+- PHP (I used 8.4.1)
 - PostgreSQL
 - PgAdmin4 (Well, technically not required, but recommended)
 - NPM (Node.JS)
