@@ -24,7 +24,9 @@ Lastly:
 - Run 'npm install' command, wait for it to install project dependencies
 - Run 'composer install' command, wait for it to finish (as above)
 
+- Run 'php artisan migrate:fresh --seed' command (It will run the migrations, and a DB seeder)
+
 - Run 'npm run build' command. This will build the app.
 - Run 'composer run dev' command. This will launch the app in dev mode.
 
-- At this point you -should- be able to connect to the website, by going to '127.0.0.1:8000' address in your web browser.
+At this point you -should- be able to connect to the website, by going to '127.0.0.1:8000' address in your web browser. Seeder should also create an example account, it's email being 'ex@amp.le', password being 'password'.
