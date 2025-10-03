@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Inertia\Inertia;
 
 class PostsController extends Controller {
 
@@ -79,6 +80,8 @@ class PostsController extends Controller {
 
         $comments = $post->comments;
 
+        // dd($post, $comments);
+
         return view('postAndComments', ['data' => ['post' => $post, 'comments' => $comments]]);
     }
 
@@ -86,6 +89,7 @@ class PostsController extends Controller {
         // I don't think any authorisation is required here...
         $posts = Post::get()->toArray();
         return view('allPosts', ['data' => $posts]);
+        // return Inertia::render('AllPostsTest', ['data' => $posts]);
     }
 
 
