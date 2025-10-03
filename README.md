@@ -1,12 +1,10 @@
 Requirements:
 
-PHP (8.*)
-
-PostgreSQL
-PgAdmin4 (Well, technically not required, but recommended)
-
-NPM (Node.JS)
-Composer
+- PHP (8.*)
+- PostgreSQL
+- PgAdmin4 (Well, technically not required, but recommended)
+- NPM (Node.JS)
+- Composer
 
 How to run the project locally:
 
