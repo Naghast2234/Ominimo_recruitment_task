@@ -22,7 +22,7 @@ class PostsController extends Controller {
 
         $post->save();
 
-        return response('Post created successfully');
+        return response('Post created successfully', 200, ['data' => $post->id]);
     }
 
     public static function updatePost(Request $request, int $post_id) {
@@ -44,7 +44,7 @@ class PostsController extends Controller {
 
         $post->save();
 
-        return response('Post edited successfully');
+        return response('Post edited successfully', 200, ['data' => $post->id]);
     }
 
     public static function deletePost(Request $request, int $post_id) {
@@ -71,7 +71,7 @@ class PostsController extends Controller {
         }
 
         
-        return response('OK', 200, ['data' => $post]); // Yeah i'll have to somehow take care of it later.
+        return view('postForm', ['data' => $post]); // So this returns the same view as post create, but passes a prop to it!
     }
 
     public static function getPostAndComments(Request $request, int $post_id) { // Fetch a post and it's comments, for authenticated users to see.

@@ -22,8 +22,8 @@ Route::prefix('/posts')->group(function () {
     Route::get('/create', function(Request $request) { // Supposed to show a form to create a new post.
         return view('postForm');
     })->middleware(IsLoggedIn::class);
-    Route::post('', function(Request $request) {
-        return PostsController::makePost($request); // TODO: Make sure that the request contains post's title and content!
+    Route::post('', function(Request $request) { // Create a new post
+        return PostsController::makePost($request); 
     })->middleware(IsLoggedIn::class);
     Route::get('/{post_id}', function(Request $request, int $post_id) { // View a single post with comments to it
         return PostsController::getPostAndComments($request, $post_id);
@@ -40,10 +40,6 @@ Route::prefix('/posts')->group(function () {
     Route::delete('/{post_id}', function(Request $request, int $post_id) { // Delete a post
         return PostsController::deletePost($request, $post_id);
     })->middleware(IsLoggedIn::class);
-
-    Route::get('/{post_id}/comments', function(Request $request, int $post_id) {
-        return view('commentForm'); // I know it wasn't in the task, but i feel like it's kind of necessary at this point.
-    });
 
     Route::post('/{post_id}/comments', function(Request $request, int $post_id) { // Add a comment
         return CommentsController::createComment($request, $post_id);

@@ -15,6 +15,7 @@ class CommentsController extends Controller {
         $comment = new Comment();
 
         $comment->comment = $content;
+        $comment->post_id = $post_id;
         $comment->user_id = Auth::id(); // It may be null. In this case, it'd be anonymous. I suppose that's why post owner needs to be able to remove anon comments.
 
 
@@ -27,8 +28,12 @@ class CommentsController extends Controller {
     public static function deleteComment(Request $request, int $comment_id) {
         $comment = Comment::findOrFail($comment_id);
 
-        if (! Gate::allows('delete_comment', $comment)) {
+        if (! Gate::allows('delete-comment', $comment)) {
             abort(401);
         }
+
+        $comment->delete();
+
+        return response('Successfully deleted a comment');
     }
 }

@@ -1,27 +1,30 @@
 <script setup>
 
 function edit_post(post_id) {
-            fetch('/posts/'+post_id+'/edit', {
-                method: 'GET'
-            });
+    window.location.href = '/posts/'+post_id+'/edit';
 };
 
 function new_post() {
-            fetch('/posts/create', {
-                method: 'GET'
-            });
+    window.location.href = '/posts/create';
 };
 
-function delete_post(post_id) {
-            fetch('/posts/'+post_id, {
-                method: 'DELETE'
-            });
+async function delete_post(post_id) {
+    response = await fetch('/posts/'+post_id, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+    });
+
+    if (response.status == 200) {
+        window.location.reload();
+    } else {
+        alert('Nie udało się usunąć posta. Kod: '+response.status);
+    }
 };
 
 function show_post(post_id) {
-            fetch('/posts/'+post_id, {
-                method: 'GET'
-            })
+    window.location.href = '/posts/'+post_id;
 };
 
 </script>

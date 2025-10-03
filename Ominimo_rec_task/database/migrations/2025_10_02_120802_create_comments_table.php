@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Post::class, 'post_id')->comment('Post ID');
-            $table->foreignIdFor(User::class, 'user_id')->comment('Comment creator ID');
+            $table->foreignIdFor(User::class, 'user_id')->comment('Comment creator ID')->nullable();
             $table->text('comment')->comment('Comments content');
             $table->timestamps();
             $table->softDeletes();
