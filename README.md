@@ -29,4 +29,4 @@ Lastly:
 - Run 'npm run build' command. This will build the app.
 - Run 'composer run dev' command. This will launch the app in dev mode.
 
-At this point you -should- be able to connect to the website, by going to '127.0.0.1:8000' address in your web browser. Seeder should also create an example account, it's email being 'ex@amp.le', password being 'password'.
+At this point you -should- be able to connect to the website, by going to '127.0.0.1:8000' address in your web browser. Seeder should also create an example account, it's email being 'ex@amp.le', password being 'password', and it's made to be the owner of all the posts and comments seeded onto the site.
